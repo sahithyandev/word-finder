@@ -1,0 +1,31 @@
+<template>
+  <require from="./app.css"></require>
+  <!-- <require from="./data-types.ts"></require> -->
+  
+  <div class="container">
+    <div class="word">
+      <div class="letter-container">
+        <span repeat.for="letter of selectedWord.showWord.split('')" class="letter-place">
+          <!-- <span class="letter placeholder">${letter}</span> -->
+          <span class="letter" if.bind="letter != '_'">${letter}</span>
+        </span>
+      </div>
+      <div class="placeholder-container">
+        <span repeat.for="letter of selectedWord.defaultValue.split('')" class="placeholder ${letter == '_' ? '': 'blank'}"></span>
+      </div>
+      
+    </div>
+
+    <div class="clues">
+      <div class="clue" repeat.for="clue of selectedWord.clues">${clue}</div>
+    </div>
+
+    <div class="keyboard-container">
+      <div repeat.for="row of letters" class="row">
+        <div repeat.for="letter of row" class="key" id.bind="letter" click.delegate="keyClicked($event)">
+          ${letter}
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

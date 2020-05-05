@@ -1,0 +1,101 @@
+* {
+  font-family: Roboto;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  margin: auto;
+}
+
+.word {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-size: 2rem;
+}
+
+.word .letter-container {
+  width: fit-content;
+  display: inline-block;
+  display: flex;
+}
+
+.word .letter-container .letter-place {
+  font-family: "Roboto Mono";
+  display: inline-block;
+  display: flex;
+  justify-content: center;
+  margin: 0px 4px;
+  min-width: 28px;
+}
+
+.word .placeholder-container {
+  width: fit-content;
+  display: flex;
+  padding: 2px 0px;
+  transform: translateY(-4px);
+}
+
+.word .placeholder-container .placeholder {
+  width: 28px;
+  margin: 0px 4px;
+  height: 4px;
+  background-color: black;
+  display: inline-block;
+}
+
+.word .placeholder-container .blank {
+  background-color: white !important;
+}
+
+.clues {
+  margin: 20px 0px;
+}
+
+.clues .clue {
+  border-radius: 4px;
+  background-color: #e7e7e7;
+  padding: 10px;
+}
+
+.keyboard-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.keyboard-container .row {
+  display: flex;
+  justify-content: center;
+}
+
+.keyboard-container .row .key {
+  display: inline-block;
+  border: 1px solid red;
+  padding: 10px;
+  margin-bottom: 5px;
+  width: 42px;
+  height: 42px;
+  font-size: 1.5rem;
+  margin: 4px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 700px) {
+  .keyboard-container .row .key {
+    width: 30px;
+    height: 30px;
+    font-size: 1.2rem;
+  }
+}
