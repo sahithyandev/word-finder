@@ -1,122 +1,122 @@
 @mixin square($width) {
-    width: $width;
-    height: $width;
+  width: $width;
+  height: $width;
 }
 
 @mixin min($width) {
-    @media (min-width: $width) {
-        @content;        
-    }
+  @media (min-width: $width) {
+    @content;
+  }
 }
 @mixin max($width) {
-    @media (max-width: $width) {
-        @content;        
-    }
+  @media (max-width: $width) {
+    @content;
+  }
 }
 
 * {
-    font-family: Roboto;
-    box-sizing: border-box;
+  font-family: Roboto;
+  box-sizing: border-box;
 }
 
 body {
-    display: flex;
-    height: 100vh;
-    margin: 0;
+  display: flex;
+  height: 100vh;
+  margin: 0;
 }
 
 .container {
-    margin: auto;
+  margin: auto;
 }
 
 .word {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-size: 2rem;
+  // background-color: yellow;
+
+  .letter-container {
+    width: fit-content;
+    display: inline-block;
     display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    font-size: 2rem;
-    // background-color: yellow;
-    
-    .letter-container {
-        width: fit-content;
-        display: inline-block;
-        display: flex;
-        // background-color: blue;
-        
-        .letter-place {
-            font-family: "Roboto Mono";
-            display: inline-block;
-            display: flex;
-            justify-content: center;
-            margin: 0px 4px;
-            min-width: 28px;
-        }
+    // background-color: blue;
+
+    .letter-place {
+      font-family: "Roboto Mono";
+      display: inline-block;
+      display: flex;
+      justify-content: center;
+      margin: 0px 4px;
+      min-width: 28px;
+    }
+  }
+
+  .placeholder-container {
+    width: fit-content;
+    // height: 10px;
+    display: flex;
+    padding: 2px 0px;
+    transform: translateY(-4px);
+    // background-color: red;
+
+    .placeholder {
+      // transform: translateY(-4px);
+      width: 28px;
+      margin: 0px 4px;
+      height: 4px;
+      background-color: black;
+      display: inline-block;
     }
 
-    .placeholder-container {
-        width: fit-content;
-        // height: 10px;
-        display: flex;
-        padding: 2px 0px;
-        transform: translateY(-4px);
-        // background-color: red;
-
-        .placeholder {
-            // transform: translateY(-4px);
-            width: 28px;
-            margin: 0px 4px;
-            height: 4px;
-            background-color: black;
-            display: inline-block;
-        }
-
-        .blank {
-            background-color: white !important;
-        }
+    .blank {
+      background-color: white !important;
     }
+  }
 }
 
 .clues {
-    margin: 20px 0px;
-    .clue {
-        border-radius: 4px;
-        background-color: rgb(231, 231, 231);
-        padding: 10px;
-    }
+  margin: 20px 0px;
+  .clue {
+    border-radius: 4px;
+    background-color: rgb(231, 231, 231);
+    padding: 10px;
+  }
 }
 
 .keyboard-container {
+  display: flex;
+  flex-direction: column;
+
+  .row {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    // margin-bottom: 4px;
 
-    .row {
-        display: flex;
-        justify-content: center;
-        // margin-bottom: 4px;
+    .key {
+      display: inline-block;
+      border: 1px solid red;
+      padding: 10px;
+      margin-bottom: 5px;
+      @include square(42px);
+      @include max(700px) {
+        @include square(30px);
+        font-size: 1.2rem;
+      }
+      font-size: 1.5rem;
+      margin: 4px;
+      border-radius: 4px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.3s ease;
 
-        .key {
-            display:inline-block;
-            border:1px solid red;
-            padding:10px;
-            margin-bottom:5px;
-            @include square(42px);
-            @include max(700px) {
-                @include square(30px);
-                font-size: 1.2rem;
-            }
-            // background-color: rgb(36, 36, 36);
-            // color: white;
-            font-size: 1.5rem;
-            // box-shadow: 0 0 0 0.05em black;
-            // background-color: white;
-            margin: 4px;
-            border-radius: 4px;
-            // padding: 6px;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+      &:hover {
+        background-color: rgb(255, 187, 187);
+      }
     }
+  }
 }
